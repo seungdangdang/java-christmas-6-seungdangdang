@@ -1,9 +1,12 @@
 package io;
 
+import static constant.ErrorMessage.NOT_VALID_NUMBER;
+
 import base.Converter;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class InputView {
     private Converter converter;
@@ -13,8 +16,15 @@ public class InputView {
     }
 
     public int visitDate() {
-        String input = Console.readLine();
-        return Integer.parseInt(input);
+        while (true) {
+            String input = Console.readLine();
+            try {
+                visitDayValidator(input);
+                return converter.stringToInteger(input);
+            } catch (IllegalArgumentException dayError) {
+                System.out.println(NOT_VALID_NUMBER);
+            }
+        }
     }
 
     public Map<String, Integer> orderList() {
