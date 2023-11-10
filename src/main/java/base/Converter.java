@@ -3,6 +3,10 @@ package base;
 import java.util.Map;
 
 public class Converter {
+    public final int stringToInteger(String string) {
+        return Integer.parseInt(string);
+    }
+
     public void parseOrderStringToList(String orderInfo, Map<String, Integer> orderList) {
         String[] items = orderInfo.split(",");
         for (String item : items) {
