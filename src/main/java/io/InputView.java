@@ -1,10 +1,17 @@
 package io;
 
+import base.Converter;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.HashMap;
 import java.util.Map;
 
 public class InputView {
+    private Converter converter;
+
+    public InputView() {
+        converter = new Converter();
+    }
+
     public int visitDate() {
         String input = Console.readLine();
         return Integer.parseInt(input);
@@ -15,18 +22,9 @@ public class InputView {
         return parseOrder(input);
     }
 
-    private static Map<String, Integer> parseOrder(String orderInfo) {
+    private Map<String, Integer> parseOrder(String orderInfo) {
         Map<String, Integer> orderList = new HashMap<>();
-
-        String[] items = orderInfo.split(",");
-        for (String item : items) {
-            String[] parts = item.split("-");
-            if (parts.length == 2) {
-                String menu = parts[0].trim();
-                int quantity = Integer.parseInt(parts[1].trim());
-                orderList.put(menu, quantity);
-            }
-        }
+        converter.parseOrderStringToList(orderInfo, orderList);
         return orderList;
     }
 }
