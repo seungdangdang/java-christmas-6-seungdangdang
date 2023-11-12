@@ -1,6 +1,6 @@
-package christmas.progress;
+package christmas.event;
 
-public class Event {
+public class FreeGift {
 
     public String getAboutFreeGift(int amount) {
         boolean result = checkFreeGift(amount);
@@ -12,5 +12,9 @@ public class Event {
 
     private boolean checkFreeGift(int amount) {
         return amount >= 120000;
+    }
+
+    private boolean checkEventEligible(int amount) {
+        return amount >= 10000;
     }
 }
