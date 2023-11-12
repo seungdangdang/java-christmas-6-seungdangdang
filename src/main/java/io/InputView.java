@@ -45,8 +45,8 @@ public class InputView {
     }
 
     private Map<String, Integer> parseOrder(String orderInfo) {
-        Map<String, Integer> orderList = new HashMap<>();
-        converter.parseOrderStringToList(orderInfo, orderList);
+        Map<String, Integer> orderList;
+        orderList = converter.parseOrderStringToList(orderInfo);
         return orderList;
     }
 }
