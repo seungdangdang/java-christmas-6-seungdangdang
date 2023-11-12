@@ -1,4 +1,4 @@
-package christmas.progress;
+package christmas.menu;
 
 public enum MENU {
     MUSHROOM_SOUP("양송이수프", 6000, "에피타이저"),

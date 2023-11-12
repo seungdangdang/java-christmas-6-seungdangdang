@@ -1,6 +1,6 @@
 package validation;
 
-import christmas.progress.MENU;
+import christmas.menu.MENU;
 import java.util.regex.Pattern;
 
 public class Validator {
