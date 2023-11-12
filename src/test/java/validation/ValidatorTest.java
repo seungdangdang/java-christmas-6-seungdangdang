@@ -21,4 +21,13 @@ class ValidatorTest {
                 () -> validator.isDayOfMonthValid("100")
         );
     }
+
+    @DisplayName("메뉴판에 없는 메뉴를 입력하면 예외가 발생한다.")
+    @Test
+    void notHasMenu() {
+        Assertions.assertThrows(
+                IllegalArgumentException.class,
+                () -> validator.isValidMenu("밥")
+        );
+    }
 }
