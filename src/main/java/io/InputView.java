@@ -1,6 +1,7 @@
 package io;
 
 import static constant.ErrorMessage.NOT_VALID_NUMBER;
+import static constant.ErrorMessage.NOT_VALID_ORDER;
 
 import base.Converter;
 import camp.nextstep.edu.missionutils.Console;
@@ -31,8 +32,16 @@ public class InputView {
     }
 
     public Map<String, Integer> orderList() {
-        String input = Console.readLine();
-        return parseOrder(input);
+        while (true) {
+            String input = Console.readLine();
+            try {
+                return parseOrder(input);
+            } catch (IllegalArgumentException orderError) {
+                System.out.println(NOT_VALID_ORDER);
+            } catch (ArrayIndexOutOfBoundsException orderError) {
+                System.out.println(NOT_VALID_NUMBER);
+            }
+        }
     }
 
     private Map<String, Integer> parseOrder(String orderInfo) {
