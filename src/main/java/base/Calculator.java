@@ -1,10 +1,10 @@
-package christmas.progress;
+package base;
 
+import christmas.progress.MENU;
 import java.util.Map;
 import java.util.Set;
 
-public class AmountCalculator {
-
+public class Calculator {
     public int getBeforeDiscountAmount(Map<String, Integer> orderList) {
         int beforeDisCountAmount = 0;
 
