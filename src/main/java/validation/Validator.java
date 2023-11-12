@@ -24,4 +24,10 @@ public class Validator {
             throw new IllegalArgumentException();
         }
     }
+
+    public void isValidOrderCount(int input) {
+        if (input < 1) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
