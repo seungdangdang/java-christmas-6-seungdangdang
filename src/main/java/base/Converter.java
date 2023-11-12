@@ -1,5 +1,6 @@
 package base;
 
+import java.util.HashMap;
 import java.util.Map;
 import validation.Validator;
 
@@ -10,11 +11,13 @@ public class Converter {
         return Integer.parseInt(string);
     }
 
-    public void parseOrderStringToList(String orderInfo, Map<String, Integer> orderList) {
+    public Map<String, Integer> parseOrderStringToList(String orderInfo) {
+        Map<String, Integer> orderList = new HashMap<>();
         String[] items = orderInfo.split(",");
         for (String item : items) {
             processOrderItem(item, orderList);
         }
+        return orderList;
     }
 
     private void processOrderItem(String item, Map<String, Integer> orderList) {
@@ -22,6 +25,7 @@ public class Converter {
         String menu = parts[0].trim();
         int quantity = parseQuantity(parts[1]);
         validator.isValidMenu(menu);
+        validator.isValidOrderCount(quantity);
         orderList.put(menu, quantity);
     }
 
