@@ -14,18 +14,18 @@ public enum MENU {
     RED_WINE("레드와인", 60000, "와인"),
     CHAMPAGNE("샴페인", 25000, "음료");
 
-    private final String menu;
+    private final String koreanName;
     private final int price;
     private final String kind;
 
     MENU(String menu, int price, String kind) {
-        this.menu = menu;
+        this.koreanName = menu;
         this.price = price;
         this.kind = kind;
     }
 
     public String getMenuName() {
-        return menu;
+        return koreanName;
     }
 
     public int getMatchPrice() {
