@@ -1,10 +1,10 @@
 package christmas;
 
-import christmas.progress.Game;
+import christmas.progress.Progress;
 
 public class Application {
     public static void main(String[] args) {
-        Game game = new Game();
-        game.run();
+        Progress progress = new Progress();
+        progress.run();
     }
 }
