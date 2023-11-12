@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Map;
 import java.util.Set;
+import java.time.DayOfWeek;
 
 public class Calculator {
     public int getBeforeDiscountAmount(Map<String, Integer> orderList) {
@@ -37,5 +38,32 @@ public class Calculator {
             return initialAmount + (daysPassed * discountPerDay);
         }
         return 0;
+    }
+
+    public int calculateDayOfWeekDiscountAmount(int visitDay, Map<String, Integer> orderList) {
+        String discountMenu = getDiscountMenu(visitDay);
+        int discountAmount = 0;
+
+        Set<String> keys = orderList.keySet();
+        for (String input : keys) {
+            for (MENU menu : MENU.values()) {
+                if (menu.getMatchKind().equals(discountMenu)) {
+                    int value = orderList.get(input);
+                    discountAmount += value * 2023;
+                }
+            }
+        }
+        return discountAmount;
+    }
+
+    private String getDiscountMenu(int visitDay) {
+        LocalDate date = LocalDate.of(2023, 12, visitDay);
+        DayOfWeek dayOfWeek = date.getDayOfWeek();
+        int dayOfWeekNumber = dayOfWeek.getValue();
+
+        if (dayOfWeekNumber == 5 || dayOfWeekNumber == 6) {
+            return "메인";
+        }
+        return "디저트";
     }
 }
