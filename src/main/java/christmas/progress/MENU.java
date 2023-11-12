@@ -24,7 +24,7 @@ public enum MENU {
         this.kind = kind;
     }
 
-    public String getMenuName() {
+    public String getKoreanName() {
         return koreanName;
     }
 
