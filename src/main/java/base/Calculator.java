@@ -43,13 +43,16 @@ public class Calculator {
     public int calculateDayOfWeekDiscountAmount(int visitDay, Map<String, Integer> orderList) {
         String discountMenu = getDiscountMenu(visitDay);
         int discountAmount = 0;
+        Set<String> orderKeys = orderList.keySet();
 
-        Set<String> keys = orderList.keySet();
-        for (String input : keys) {
+        for (String myOrder : orderKeys) {
             for (MENU menu : MENU.values()) {
-                if (menu.getMatchKind().equals(discountMenu)) {
-                    int value = orderList.get(input);
-                    discountAmount += value * 2023;
+                if (menu.getKoreanName().equals(myOrder)) {
+                    if (menu.getMatchKind().equals(discountMenu)) {
+                        int value = orderList.get(myOrder);
+                        int discount = value * 2023;
+                        discountAmount += discount;
+                    }
                 }
             }
         }
