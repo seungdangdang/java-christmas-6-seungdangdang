@@ -17,8 +17,8 @@ class ChristmasDayDiscountTest {
     @DisplayName("입력일자에 따른 할인금액 반환")
     @Test
     void returnDiscountAmount() {
-        assertEquals(christmasDayDiscount.getDiscountChristmasDay(25), 3400);
-        assertEquals(christmasDayDiscount.getDiscountChristmasDay(1), 1000);
-        assertEquals(christmasDayDiscount.getDiscountChristmasDay(26), 0);
+        assertEquals(christmasDayDiscount.getChristmasDayDiscount(25), 3400);
+        assertEquals(christmasDayDiscount.getChristmasDayDiscount(1), 1000);
+        assertEquals(christmasDayDiscount.getChristmasDayDiscount(26), 0);
     }
 }
