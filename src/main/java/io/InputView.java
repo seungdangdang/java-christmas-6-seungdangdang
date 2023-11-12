@@ -6,12 +6,15 @@ import base.Converter;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Pattern;
+import validation.Validator;
 
 public class InputView {
-    private Converter converter;
+    private final Converter converter;
 
-    public InputView() {
+    private final Validator validator;
+
+    public InputView(Validator validator) {
+        this.validator = validator;
         converter = new Converter();
     }
 
@@ -19,7 +22,7 @@ public class InputView {
         while (true) {
             String input = Console.readLine();
             try {
-                visitDayValidator(input);
+                validator.isDayOfMonthValid(input);
                 return converter.stringToInteger(input);
             } catch (IllegalArgumentException dayError) {
                 System.out.println(NOT_VALID_NUMBER);
