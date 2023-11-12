@@ -36,10 +36,8 @@ public class InputView {
             String input = Console.readLine();
             try {
                 return parseOrder(input);
-            } catch (IllegalArgumentException orderError) {
+            } catch (IllegalArgumentException | ArrayIndexOutOfBoundsException orderError) {
                 System.out.println(NOT_VALID_ORDER);
-            } catch (ArrayIndexOutOfBoundsException orderError) {
-                System.out.println(NOT_VALID_NUMBER);
             }
         }
     }
