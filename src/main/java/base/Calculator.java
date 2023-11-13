@@ -82,4 +82,11 @@ public class Calculator {
         }
         return "디저트";
     }
+
+    public int getDiscountedAmount(int beforeAmount, int entireDiscountAmount, int freeGiftResult) {
+        if (freeGiftResult > 0) {
+            return beforeAmount - (entireDiscountAmount - 25000);
+        }
+        return beforeAmount - entireDiscountAmount;
+    }
 }
