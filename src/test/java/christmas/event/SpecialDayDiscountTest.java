@@ -24,5 +24,4 @@ class SpecialDayDiscountTest {
         assertEquals(specialDayDiscount.getSpecialDayDiscount(4), 0);
         assertEquals(specialDayDiscount.getSpecialDayDiscount(31), 1000);
     }
-
 }
