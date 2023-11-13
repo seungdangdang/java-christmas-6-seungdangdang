@@ -1,6 +1,6 @@
 package christmas.progress;
 
-import christmas.event.ChristmasDayDiscount;
+import base.Calculator;
 import io.InputView;
 import io.OutputView;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ public class Progress {
     public Validator validator = new Validator();
     public OutputView outputView = new OutputView();
     public InputView inputView = new InputView(validator);
-    public ChristmasDayDiscount christmasDayDiscount = new ChristmasDayDiscount();
+    Calculator calculator = new Calculator();
     public int visitDate = 0;
     public Map<String, Integer> orderList = new HashMap<>();
 
@@ -23,10 +23,15 @@ public class Progress {
         this.orderList = inputView.orderList();
         outputView.eventPreviewMessage(visitDate);
         outputView.outputOrderMenu(orderList);
+        int beforeAmount = calculator.getBeforeDiscountAmount(orderList);
         outputView.outputBeforeDiscountAmount(orderList);
         outputView.outputFreeGift();
-
-        int discountAmount = 0;
-        discountAmount += christmasDayDiscount.getChristmasDayDiscount(visitDate);
+        outputView.outputBenefit(visitDate, orderList, beforeAmount);
+        int entireDiscountAmount = outputView.getEntireDiscountAmount(visitDate, orderList, beforeAmount);
+        outputView.outputEntireBenefit(entireDiscountAmount);
+        int discountedAMount = outputView.getAfterDiscountedAmount(beforeAmount, entireDiscountAmount);
+        outputView.outputDiscountedAmount(discountedAMount);
+        String eventBadge = outputView.getEventBadge(entireDiscountAmount);
+        outputView.outputEventBadge(eventBadge);
     }
 }
