@@ -69,11 +69,14 @@ public class Calculator {
         return discountAmount;
     }
 
-    private String getDiscountMenu(int visitDay) {
+    public String getDiscountMenu(int visitDay) {
+        return checkMainOrDessertDiscount(visitDay);
+    }
+
+    private String checkMainOrDessertDiscount(int visitDay) {
         LocalDate date = LocalDate.of(2023, 12, visitDay);
         DayOfWeek dayOfWeek = date.getDayOfWeek();
         int dayOfWeekNumber = dayOfWeek.getValue();
-
         if (dayOfWeekNumber == 5 || dayOfWeekNumber == 6) {
             return "메인";
         }
