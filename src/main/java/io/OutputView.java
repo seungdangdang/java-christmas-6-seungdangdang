@@ -7,10 +7,7 @@ import static constant.SystemMessage.LINE_SEPARATOR;
 import static constant.SystemMessage.WELCOME_MESSAGE;
 
 import base.Calculator;
-import christmas.event.ChristmasDayDiscount;
-import christmas.event.DayOfWeekDiscount;
 import christmas.event.FreeGift;
-import christmas.event.SpecialDayDiscount;
 import christmas.progress.Benefit;
 import java.text.DecimalFormat;
 import java.util.Map;
@@ -88,5 +85,11 @@ public class OutputView {
         if (christmasDayAmount == 0 && dayOfWeekAmount == 0 && specialDayAmount == 0 && freeGiftResult == 0) {
             System.out.println("없음");
         }
+    }
+
+    public void outputEntireBenefit(int amountAfterDiscount) {
+        System.out.print(LINE_SEPARATOR);
+        System.out.println("<총혜택 금액>");
+        System.out.println("-" + formatter.format(amountAfterDiscount) + "원");
     }
 }
