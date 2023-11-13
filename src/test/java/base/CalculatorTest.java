@@ -26,4 +26,11 @@ class CalculatorTest {
         int amount = calculator.getBeforeDiscountAmount(list);
         assertEquals(amount, 131000);
     }
+
+    @DisplayName("방문날짜에 따라 크리스마스 디데이 할인이 적용된다.")
+    @Test
+    void calculateChristmasDayDiscount() {
+        assertEquals(calculator.calculateChristmasDayDiscount(31), 0);
+        assertEquals(calculator.calculateChristmasDayDiscount(25), 3400);
+    }
 }
