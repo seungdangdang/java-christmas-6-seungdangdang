@@ -3,6 +3,7 @@ package base;
 import christmas.menu.MENU;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.time.DayOfWeek;
@@ -36,6 +37,15 @@ public class Calculator {
             int daysPassed = (int) startDate.until(userDate, ChronoUnit.DAYS);
 
             return initialAmount + (daysPassed * discountPerDay);
+        }
+        return 0;
+    }
+
+    public int calculateSpecialDayDiscount(int visitDay, List<Integer> specialDayList) {
+        for (Integer specialDay : specialDayList) {
+            if (visitDay == specialDay) {
+                return 1000;
+            }
         }
         return 0;
     }
