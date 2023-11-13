@@ -7,7 +7,11 @@ import static constant.SystemMessage.LINE_SEPARATOR;
 import static constant.SystemMessage.WELCOME_MESSAGE;
 
 import base.Calculator;
+import christmas.event.ChristmasDayDiscount;
+import christmas.event.DayOfWeekDiscount;
 import christmas.event.FreeGift;
+import christmas.event.SpecialDayDiscount;
+import christmas.progress.Benefit;
 import java.text.DecimalFormat;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -15,10 +19,11 @@ import java.util.Map.Entry;
 public class OutputView {
     public FreeGift event = new FreeGift();
     private int amount = 0;
-    private String freeGift;
 
     Calculator calculator = new Calculator();
+
     DecimalFormat formatter = new DecimalFormat("###,###");
+    Benefit benefit = new Benefit();
 
     public void startMessage() {
         System.out.println(WELCOME_MESSAGE);
@@ -54,7 +59,34 @@ public class OutputView {
     public void outputFreeGift() {
         System.out.print(LINE_SEPARATOR);
         System.out.println("<증정 메뉴>");
-        freeGift = event.getAboutFreeGift(amount);
-        System.out.println(freeGift);
+        String freeGiftMenu = event.getAboutFreeGift(amount);
+        System.out.println(freeGiftMenu);
+    }
+
+    public void outputBenefit(int visitDay, Map<String, Integer> orderList, int beforeAmount) {
+        benefit.getUserBenefit(visitDay, orderList, beforeAmount);
+        int christmasDayAmount = benefit.getChristmasDayAmount();
+        int dayOfWeekAmount = benefit.getDayOfWeekAmount();
+        String thisDay = benefit.getThisDay();
+        int specialDayAmount = benefit.getSpecialDayAmount();
+        int freeGiftResult = benefit.getFreeGiftResult();
+        System.out.print(LINE_SEPARATOR);
+        System.out.println("<혜택 내역>");
+
+        if (christmasDayAmount > 0) {
+            System.out.println("크리스마스 디데이 할인: -" + formatter.format(christmasDayAmount) + "원");
+        }
+        if (dayOfWeekAmount > 0) {
+            System.out.println(thisDay + " 할인: -" + formatter.format(dayOfWeekAmount) + "원");
+        }
+        if (specialDayAmount > 0) {
+            System.out.println("특별 할인: -" + formatter.format(specialDayAmount) + "원");
+        }
+        if (freeGiftResult > 0) {
+            System.out.println("증정 이벤트: -" + formatter.format(freeGiftResult) + "원");
+        }
+        if (christmasDayAmount == 0 && dayOfWeekAmount == 0 && specialDayAmount == 0 && freeGiftResult == 0) {
+            System.out.println("없음");
+        }
     }
 }
