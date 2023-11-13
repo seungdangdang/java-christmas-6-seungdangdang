@@ -92,4 +92,14 @@ public class OutputView {
         System.out.println("<총혜택 금액>");
         System.out.println("-" + formatter.format(amountAfterDiscount) + "원");
     }
+
+    public int getEntireDiscountAmount(int visitDay, Map<String, Integer> orderList, int beforeAmount) {
+        benefit.getUserBenefit(visitDay, orderList, beforeAmount);
+        int christmasDayAmount = benefit.getChristmasDayAmount();
+        int dayOfWeekAmount = benefit.getDayOfWeekAmount();
+        int specialDayAmount = benefit.getSpecialDayAmount();
+        int freeGiftResult = benefit.getFreeGiftResult();
+
+        return christmasDayAmount + dayOfWeekAmount + specialDayAmount + freeGiftResult;
+    }
 }
