@@ -113,4 +113,25 @@ public class OutputView {
         int freeGiftResult = benefit.getFreeGiftResult();
         return calculator.getDiscountedAmount(beforeAmount, entireDiscountAmount, freeGiftResult);
     }
+
+    public void outputEventBadge(String eventBadge) {
+        System.out.print(LINE_SEPARATOR);
+        System.out.println("<12월 이벤트 배지>");
+        if (eventBadge != null) {
+            System.out.println(eventBadge);
+        }
+    }
+
+    public String getEventBadge(int entireDiscountAmount) {
+        if (entireDiscountAmount >= 20000) {
+            return "산타";
+        }
+        if (entireDiscountAmount >= 10000) {
+            return "트리";
+        }
+        if (entireDiscountAmount >= 5000) {
+            return "별";
+        }
+        return null;
+    }
 }
