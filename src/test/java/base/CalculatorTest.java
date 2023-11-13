@@ -1,8 +1,7 @@
-package christmas.progress;
+package base;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import base.Calculator;
 import java.util.HashMap;
 import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
