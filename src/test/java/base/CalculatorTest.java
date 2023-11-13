@@ -33,4 +33,11 @@ class CalculatorTest {
         assertEquals(calculator.calculateChristmasDayDiscount(31), 0);
         assertEquals(calculator.calculateChristmasDayDiscount(25), 3400);
     }
+
+    @DisplayName("방문요일에 따라 적용되는 할인 메뉴가 반환된다.")
+    @Test
+    void getDiscountMenu() {
+        assertEquals(calculator.getDiscountMenu(31), "디저트");
+        assertEquals(calculator.getDiscountMenu(30), "메인");
+    }
 }
