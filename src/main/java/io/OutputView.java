@@ -102,4 +102,15 @@ public class OutputView {
 
         return christmasDayAmount + dayOfWeekAmount + specialDayAmount + freeGiftResult;
     }
+
+    public void outputDiscountedAmount(int discountedAmount) {
+        System.out.print(LINE_SEPARATOR);
+        System.out.println("<할인 후 예상 결제 금액>");
+        System.out.println(formatter.format(discountedAmount) + "원");
+    }
+
+    public int getAfterDiscountedAmount(int beforeAmount, int entireDiscountAmount) {
+        int freeGiftResult = benefit.getFreeGiftResult();
+        return calculator.getDiscountedAmount(beforeAmount, entireDiscountAmount, freeGiftResult);
+    }
 }
