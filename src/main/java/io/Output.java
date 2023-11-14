@@ -13,7 +13,7 @@ import java.text.DecimalFormat;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class OutputView {
+public class Output {
     public FreeGift event = new FreeGift();
     private int amount = 0;
 
