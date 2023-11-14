@@ -39,15 +39,15 @@ class ValidatorTest {
     void createInvalidOrderCount() {
         Assertions.assertThrows(
                 ArrayIndexOutOfBoundsException.class,
-                () -> converter.parseOrderStringToList("양송이수프")
+                () -> converter.parseOrder("양송이수프")
         );
         Assertions.assertThrows(
                 IllegalArgumentException.class,
-                () -> converter.parseOrderStringToList("양송이수프-양송이수프")
+                () -> converter.parseOrder("양송이수프-양송이수프")
         );
         Assertions.assertThrows(
                 IllegalArgumentException.class,
-                () -> converter.parseOrderStringToList("양송이수프-0")
+                () -> converter.parseOrder("양송이수프-0")
         );
     }
 }
