@@ -14,7 +14,6 @@ public class UserOrder {
         return orderList();
     }
 
-    //TODO: orderLlist 메서드 책임 상세 분리
     private Map<String, Integer> orderList() {
         while (true) {
             String value = input.getUserInput();
