@@ -3,7 +3,7 @@ package io;
 import static constant.ErrorMessage.NOT_VALID_NUMBER;
 import static constant.ErrorMessage.NOT_VALID_ORDER;
 
-import common.Converter;
+import common.tool.Converter;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Map;
 import validation.Validator;

@@ -1,6 +1,6 @@
 package christmas.progress;
 
-import common.Calculator;
+import common.tool.Calculator;
 import christmas.event.ChristmasDayDiscount;
 import christmas.event.DayOfWeekDiscount;
 import christmas.event.FreeGift;

@@ -6,7 +6,7 @@ import static constant.SystemMessage.EVENT_PREVIEW_NOTIFICATION_MESSAGE;
 import static constant.SystemMessage.LINE_SEPARATOR;
 import static constant.SystemMessage.WELCOME_MESSAGE;
 
-import common.Calculator;
+import common.tool.Calculator;
 import christmas.event.FreeGift;
 import christmas.progress.Benefit;
 import java.text.DecimalFormat;

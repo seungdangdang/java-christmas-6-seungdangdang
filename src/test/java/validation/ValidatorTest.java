@@ -1,6 +1,6 @@
 package validation;
 
-import common.Converter;
+import common.tool.Converter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
