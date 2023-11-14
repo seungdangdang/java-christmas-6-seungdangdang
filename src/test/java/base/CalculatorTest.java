@@ -41,4 +41,20 @@ class CalculatorTest {
         assertEquals(calculator.getDiscountMenu(31), "디저트");
         assertEquals(calculator.getDiscountMenu(30), "메인");
     }
+
+    @DisplayName("방문 요일에 따라서 할인되는 금액을 반환한다.")
+    @Test
+    void returnDayOfWeekDiscount() {
+        Map<String, Integer> orderList = new HashMap<>();
+        orderList.put("샴페인", 1);
+        orderList.put("양송이수프", 1);
+        orderList.put("초코케이크", 1);
+        assertEquals(calculator.calculateDayOfWeekDiscountAmount(1, orderList), 0);
+        orderList.clear();
+
+        orderList.put("티본스테이크", 5);
+        orderList.put("양송이수프", 1);
+        orderList.put("초코케이크", 1);
+        assertEquals(calculator.calculateDayOfWeekDiscountAmount(1, orderList), 10115);
+    }
 }
