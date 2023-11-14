@@ -18,18 +18,6 @@ public class InputView {
         converter = new Converter();
     }
 
-    public int visitDate() {
-        while (true) {
-            String input = Console.readLine();
-            try {
-                validator.isDayOfMonthValid(input);
-                return converter.stringToInteger(input);
-            } catch (IllegalArgumentException dayError) {
-                System.out.println(NOT_VALID_NUMBER);
-            }
-        }
-    }
-
     public Map<String, Integer> orderList() {
         while (true) {
             String input = Console.readLine();
