@@ -1,11 +1,17 @@
 package common.tool;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 import validation.Validator;
 
 public class Converter {
+    DecimalFormat formatter = new DecimalFormat("###,###");
+
     Validator validator = new Validator();
+    public String formatNumberWithCommas(int number) {
+        return formatter.format(number);
+    }
 
     public final int stringToInteger(String value) {
         validator.isDayOfMonthValid(value);
