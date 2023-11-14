@@ -19,7 +19,6 @@ public class UserInterface {
     Benefit benefit = new Benefit();
     int visitDate = 0;
     public Map<String, Integer> orderList = new HashMap<>();
-    String freeGiftMenu;
 
     public void gatheringVisitDateAndOrderList() {
         output.startMessage();

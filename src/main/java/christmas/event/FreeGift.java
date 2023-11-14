@@ -13,8 +13,4 @@ public class FreeGift {
     private boolean checkFreeGift(int amount) {
         return amount >= 120000;
     }
-
-    private boolean checkEventEligible(int amount) {
-        return amount >= 10000;
-    }
 }
