@@ -1,5 +1,7 @@
 package io;
 
+import static constant.ErrorMessage.NOT_VALID_NUMBER;
+import static constant.ErrorMessage.NOT_VALID_ORDER;
 import static constant.RequestMessage.ORDER_REQUEST_MESSAGE;
 import static constant.RequestMessage.VISIT_DAY_REQUEST_MESSAGE;
 import static constant.SystemMessage.EVENT_PREVIEW_NOTIFICATION_MESSAGE;
@@ -36,6 +38,14 @@ public class Output {
 
     public void orderRequestMessage() {
         System.out.println(ORDER_REQUEST_MESSAGE);
+    }
+
+    public void outputOrderErrorMessage() {
+        System.out.println(NOT_VALID_ORDER);
+    }
+
+    public void outputVisitDayErrorMessage() {
+        System.out.println(NOT_VALID_NUMBER);
     }
 
     public void outputOrderMenu(Map<String, Integer> orderList) {
