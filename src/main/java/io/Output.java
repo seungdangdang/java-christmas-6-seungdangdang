@@ -14,11 +14,11 @@ import java.util.Map;
 public class Output {
     Converter converter;
 
-    private Output(Converter converter) {
+    public Output(Converter converter) {
         this.converter = converter;
     }
 
-    public void startMessage() {
+    public final void startMessage() {
         System.out.println(WELCOME_MESSAGE);
     }
 
@@ -94,23 +94,23 @@ public class Output {
         System.out.println("없음");
     }
 
-    public void outputEntireBenefit() {
+    public final void outputEntireBenefit() {
         System.out.print(LINE_SEPARATOR);
         System.out.println("<총혜택 금액>");
     }
 
-    public void estimatedPaymentAmountAfterDiscount() {
+    public final void estimatedPaymentAmountAfterDiscount() {
         System.out.print(LINE_SEPARATOR);
         System.out.println("<할인 후 예상 결제 금액>");
     }
 
 
-    public void outputEventBadge() {
+    public final void outputEventBadge() {
         System.out.print(LINE_SEPARATOR);
         System.out.println("<12월 이벤트 배지>");
     }
 
-    public void outputEventBadgeResult(int totalDiscountAmount) {
+    public final void outputEventBadgeResult(int totalDiscountAmount) {
         String eventBadge = getEventBadge(totalDiscountAmount);
         if (eventBadge != null) {
             System.out.println(eventBadge);
@@ -120,7 +120,7 @@ public class Output {
         }
     }
 
-    private String getEventBadge(int entireDiscountAmount) {
+    private final String getEventBadge(int entireDiscountAmount) {
         if (entireDiscountAmount >= 20000) {
             return "산타";
         }
