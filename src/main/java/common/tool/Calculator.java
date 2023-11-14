@@ -83,10 +83,13 @@ public class Calculator {
         return "디저트";
     }
 
-    public int getDiscountedAmount(int beforeAmount, int entireDiscountAmount, int freeGiftResult) {
-        if (freeGiftResult > 0) {
+    public int getDiscountedAmount(int beforeAmount, int entireDiscountAmount, String freeGiftResult) {
+        if (freeGiftResult.equals("샴페인 1개")) {
             return beforeAmount - (entireDiscountAmount - 25000);
         }
-        return beforeAmount - entireDiscountAmount;
+        if (freeGiftResult.equals("없음")) {
+            return beforeAmount - entireDiscountAmount;
+        }
+        return 0;
     }
 }
