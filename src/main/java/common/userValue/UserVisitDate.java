@@ -23,7 +23,7 @@ public class UserVisitDate {
                 validator.isDayOfMonthValid(value);
                 return converter.stringToInteger(value);
             } catch (IllegalArgumentException dayError) {
-                output.outputOrderErrorMessage();
+                output.outputVisitDayErrorMessage();
             }
         }
     }
