@@ -1,6 +1,6 @@
 package christmas.event;
 
-import base.Calculator;
+import common.Calculator;
 import java.util.Map;
 
 public class DayOfWeekDiscount {

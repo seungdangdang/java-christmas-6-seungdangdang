@@ -2,7 +2,7 @@ package christmas.event;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import base.Calculator;
+import common.Calculator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

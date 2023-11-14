@@ -1,6 +1,6 @@
 package christmas.progress;
 
-import base.Calculator;
+import common.Calculator;
 import io.InputView;
 import io.OutputView;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package base;
+package common;
 
 import christmas.menu.MENU;
 import java.time.LocalDate;

@@ -1,6 +1,6 @@
 package christmas.event;
 
-import base.Calculator;
+import common.Calculator;
 
 public class ChristmasDayDiscount {
     Calculator calculator = new Calculator();

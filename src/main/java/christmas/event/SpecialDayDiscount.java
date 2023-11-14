@@ -1,6 +1,6 @@
 package christmas.event;
 
-import base.Calculator;
+import common.Calculator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
