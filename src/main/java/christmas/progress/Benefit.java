@@ -1,15 +1,11 @@
 package christmas.progress;
 
 import common.tool.Calculator;
-import christmas.event.ChristmasDayDiscount;
-import christmas.event.DayOfWeekDiscount;
 import christmas.event.FreeGift;
 import christmas.event.SpecialDayDiscount;
 import java.util.Map;
 
 public class Benefit {
-    ChristmasDayDiscount christmasDayDiscount = new ChristmasDayDiscount();
-    DayOfWeekDiscount dayOfWeekDiscount = new DayOfWeekDiscount();
     Calculator calculator = new Calculator();
 
     SpecialDayDiscount specialDayDiscount = new SpecialDayDiscount(calculator);
@@ -41,8 +37,8 @@ public class Benefit {
     }
 
     public void getUserBenefit(int visitDay, Map<String, Integer> orderList, int beforeAmount) {
-        christmasDayAmount = christmasDayDiscount.getChristmasDayDiscount(visitDay);
-        dayOfWeekAmount = dayOfWeekDiscount.getDayOfWeekDiscountAmount(visitDay, orderList);
+        christmasDayAmount = calculator.calculateChristmasDayDiscount(visitDay);
+        dayOfWeekAmount = calculator.calculateDayOfWeekDiscountAmount(visitDay, orderList);
         specialDayAmount = specialDayDiscount.getSpecialDayDiscount(visitDay);
         if (calculator.getDiscountMenu(visitDay).equals("메인")) {
             thisDay = "주말";
