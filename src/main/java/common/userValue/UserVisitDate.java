@@ -3,13 +3,11 @@ package common.userValue;
 import common.tool.Converter;
 import io.Input;
 import io.Output;
-import validation.Validator;
 
 public class UserVisitDate {
     private final Converter converter = new Converter();
-    private final Validator validator = new Validator();
     private final Input input = new Input();
-    private final Output output = new Output();
+    private final Output output = new Output(converter);
 
     public int getVisitDate() {
         return visitDate();

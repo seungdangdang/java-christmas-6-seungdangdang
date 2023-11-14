@@ -7,7 +7,6 @@ import validation.Validator;
 
 public class Converter {
     DecimalFormat formatter = new DecimalFormat("###,###");
-
     Validator validator = new Validator();
     public String formatNumberWithCommas(int number) {
         return formatter.format(number);
