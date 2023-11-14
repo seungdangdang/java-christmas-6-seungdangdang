@@ -1,7 +1,9 @@
 package christmas.progress;
 
+import camp.nextstep.edu.missionutils.Console;
 import christmas.event.FreeGift;
 import common.tool.Calculator;
+import common.tool.Converter;
 import common.userValue.UserOrder;
 import common.userValue.UserVisitDate;
 import io.Output;
@@ -9,9 +11,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-// MEMO: 매개변수를 넣으면 여러 클래스와 메서드의 기능을 조합해서 값을 도출해내는 창구
 public class UserInterface {
-    Output output = new Output();
+    //TODO: Input클래스 별도로 만들기
+    Converter converter = new Converter();
+
+//    public UserInterface(Converter converter) {
+//        this.converter = converter;
+//    }
+
+    Output output = new Output(converter);
     UserVisitDate userVisitDate = new UserVisitDate();
     UserOrder userOrder = new UserOrder();
     Calculator calculator = new Calculator();
@@ -26,6 +34,7 @@ public class UserInterface {
         visitDate = userVisitDate.getVisitDate();
         output.orderRequestMessage();
         orderList = userOrder.getOrderList();
+        Console.close();
     }
 
     public void showEventBenefits(int visitDate, Map<String, Integer> orderList) {
