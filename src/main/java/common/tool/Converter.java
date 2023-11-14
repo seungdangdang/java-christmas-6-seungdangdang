@@ -7,8 +7,9 @@ import validation.Validator;
 public class Converter {
     Validator validator = new Validator();
 
-    public final int stringToInteger(String string) {
-        return Integer.parseInt(string);
+    public final int stringToInteger(String value) {
+        validator.isDayOfMonthValid(value);
+        return Integer.parseInt(value);
     }
 
     public Map<String, Integer> parseOrder(String orderInfo) {
