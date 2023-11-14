@@ -6,9 +6,9 @@ import io.Output;
 import java.util.Map;
 
 public class UserOrder {
-    private final Input input = new Input();
-    private final Output output = new Output();
     private final Converter converter = new Converter();
+    private final Input input = new Input();
+    private final Output output = new Output(converter);
 
     public Map<String, Integer> getOrderList() {
         return orderList();
