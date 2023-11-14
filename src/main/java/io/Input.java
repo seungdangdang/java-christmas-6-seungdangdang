@@ -1,6 +1,5 @@
 package io;
 
-import static constant.ErrorMessage.NOT_VALID_NUMBER;
 import static constant.ErrorMessage.NOT_VALID_ORDER;
 
 import common.tool.Converter;
@@ -8,12 +7,12 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Map;
 import validation.Validator;
 
-public class InputView {
+public class Input {
     private final Converter converter;
 
     private final Validator validator;
 
-    public InputView(Validator validator) {
+    public Input(Validator validator) {
         this.validator = validator;
         converter = new Converter();
     }
