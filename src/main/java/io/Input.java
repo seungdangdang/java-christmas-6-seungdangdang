@@ -8,13 +8,12 @@ import java.util.Map;
 import validation.Validator;
 
 public class Input {
-    private final Converter converter;
+    private final Converter converter = new Converter();
 
-    private final Validator validator;
+    private final Validator validator = new Validator();
 
-    public Input(Validator validator) {
-        this.validator = validator;
-        converter = new Converter();
+    public String getUserInput() {
+        return Console.readLine();
     }
 
     public Map<String, Integer> orderList() {
