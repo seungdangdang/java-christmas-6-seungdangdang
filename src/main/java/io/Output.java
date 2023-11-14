@@ -12,8 +12,11 @@ import common.tool.Converter;
 import java.util.Map;
 
 public class Output {
+    Converter converter;
 
-    Converter converter = new Converter();
+    private Output(Converter converter) {
+        this.converter = converter;
+    }
 
     public void startMessage() {
         System.out.println(WELCOME_MESSAGE);
@@ -100,6 +103,7 @@ public class Output {
         System.out.print(LINE_SEPARATOR);
         System.out.println("<할인 후 예상 결제 금액>");
     }
+
 
     public void outputEventBadge() {
         System.out.print(LINE_SEPARATOR);
