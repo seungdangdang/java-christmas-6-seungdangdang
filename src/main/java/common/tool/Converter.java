@@ -11,7 +11,13 @@ public class Converter {
         return Integer.parseInt(string);
     }
 
-    public Map<String, Integer> parseOrderStringToList(String orderInfo) {
+    public Map<String, Integer> parseOrder(String orderInfo) {
+        Map<String, Integer> orderList;
+        orderList = parseOrderStringToList(orderInfo);
+        return orderList;
+    }
+
+    private Map<String, Integer> parseOrderStringToList(String orderInfo) {
         Map<String, Integer> orderList = new HashMap<>();
         String[] items = orderInfo.split(",");
         for (String item : items) {
