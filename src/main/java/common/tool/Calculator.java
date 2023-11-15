@@ -61,15 +61,27 @@ public class Calculator {
         Set<String> orderKeys = orderList.keySet();
 
         for (String myOrder : orderKeys) {
-            for (MENU menu : MENU.values()) {
-                if (menu.getKoreanName().equals(myOrder)) {
-                    if (menu.getMatchKind().equals(discountMenu)) {
-                        int value = orderList.get(myOrder);
-                        int discount = value * 2023;
-                        discountAmount += discount;
-                    }
-                }
+            discountAmount = getDiscountAmount(orderList, myOrder, discountMenu, discountAmount);
+        }
+        return discountAmount;
+    }
+
+    private static int getDiscountAmount(Map<String, Integer> orderList, String myOrder, String discountMenu,
+                                         int discountAmount) {
+        for (MENU menu : MENU.values()) {
+            if (menu.getKoreanName().equals(myOrder)) {
+                discountAmount = getDiscountAmount(orderList, myOrder, discountMenu, discountAmount, menu);
             }
+        }
+        return discountAmount;
+    }
+
+    private static int getDiscountAmount(Map<String, Integer> orderList, String myOrder, String discountMenu,
+                                         int discountAmount, MENU menu) {
+        if (menu.getMatchKind().equals(discountMenu)) {
+            int value = orderList.get(myOrder);
+            int discount = value * 2023;
+            discountAmount += discount;
         }
         return discountAmount;
     }
