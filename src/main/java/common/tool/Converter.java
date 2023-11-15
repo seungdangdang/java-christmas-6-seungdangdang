@@ -31,6 +31,7 @@ public class Converter {
         for (String item : items) {
             processOrderItem(item, orderList);
         }
+        validator.validateOrderMenuCount(orderList);
         return orderList;
     }
 
