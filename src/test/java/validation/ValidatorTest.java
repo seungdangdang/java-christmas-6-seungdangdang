@@ -1,6 +1,8 @@
 package validation;
 
 import common.tool.Converter;
+import java.util.HashMap;
+import java.util.Map;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -9,11 +11,13 @@ import org.junit.jupiter.api.Test;
 class ValidatorTest {
     Validator validator;
     Converter converter;
+    Map<String, Integer> orderList;
 
     @BeforeEach
     void setup() {
         validator = new Validator();
         converter = new Converter();
+        orderList = new HashMap<>();
     }
 
     @DisplayName("1~31사이의 숫자가 아닌 입력 시 예외가 발생한다.")
@@ -65,6 +69,16 @@ class ValidatorTest {
         Assertions.assertThrows(
                 IllegalArgumentException.class,
                 () -> converter.parseOrder("제로콜라-3")
+        );
+    }
+
+    @DisplayName("이미 입력한 메뉴를 중복 입력하면 예외가 발생한다.")
+    @Test
+    void createDuplicateMenuOrder() {
+        orderList.put("시저샐러드", 1);
+        Assertions.assertThrows(
+                IllegalArgumentException.class,
+                () -> validator.hasDuplicateMenuOrder(orderList, "시저샐러드")
         );
     }
 }
