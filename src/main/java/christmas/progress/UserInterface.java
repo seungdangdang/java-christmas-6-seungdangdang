@@ -65,7 +65,11 @@ public class UserInterface {
         output.noneMessage();
         output.outputEachBenefit();
         output.noneMessage();
+        output.outputEntireBenefit();
+        output.noneMessage();
         output.outputEstimatedPaymentAmountAfterDiscount();
+        output.noneMessage();
+        output.outputEventBadge();
         output.noneMessage();
     }
 
