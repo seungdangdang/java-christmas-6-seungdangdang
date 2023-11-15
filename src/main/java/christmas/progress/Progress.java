@@ -12,6 +12,6 @@ public class Progress {
         userInterface.gatheringVisitDateAndOrderList();
         this.visitDate = userInterface.visitDate;
         this.orderList = userInterface.orderList;
-        userInterface.showEventBenefits(visitDate, orderList);
+        userInterface.showUserOrderInformation(visitDate, orderList);
     }
 }
