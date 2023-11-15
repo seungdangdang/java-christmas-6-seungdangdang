@@ -10,19 +10,24 @@ import java.time.DayOfWeek;
 
 public class Calculator {
     public int getBeforeDiscountAmount(Map<String, Integer> orderList) {
-        int beforeDisCountAmount = 0;
+        int beforeDiscountAmount = 0;
 
         Set<String> keys = orderList.keySet();
         for (String input : keys) {
-            for (MENU menu : MENU.values()) {
-                if (menu.getKoreanName().equals(input)) {
-                    int value = orderList.get(input);
-                    int price = value * menu.getMatchPrice();
-                    beforeDisCountAmount += price;
-                }
+            int price = getPriceForMenu(input, orderList.get(input));
+            beforeDiscountAmount += price;
+        }
+        return beforeDiscountAmount;
+    }
+
+
+    private int getPriceForMenu(String input, int quantity) {
+        for (MENU menu : MENU.values()) {
+            if (menu.getKoreanName().equals(input)) {
+                return quantity * menu.getMatchPrice();
             }
         }
-        return beforeDisCountAmount;
+        return 0;
     }
 
     public int calculateChristmasDayDiscount(int visitDay) {
