@@ -28,6 +28,7 @@ public class UserInterface {
         output.visitDayRequestMessage();
         visitDate = input.getVisitDate();
         output.orderRequestMessage();
+        output.outputInstructionsWhenOrder();
         orderList = input.getOrderList();
         Console.close();
     }
