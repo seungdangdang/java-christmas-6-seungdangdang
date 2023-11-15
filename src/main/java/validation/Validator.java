@@ -2,6 +2,7 @@ package validation;
 
 import christmas.menu.MENU;
 import christmas.menu.MenuCategory;
+import java.util.Collection;
 import java.util.Map;
 import java.util.regex.Pattern;
 
@@ -49,6 +50,18 @@ public class Validator {
 
     public void hasDuplicateMenuOrder(Map<String, Integer> orderList, String menu) {
         if (orderList.containsKey(menu)) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public void validateOrderMenuCount(Map<String, Integer> orderList) {
+        int totalOrderMenuCount = 0;
+        Collection<Integer> eachMenuCount = orderList.values();
+        for (Integer count : eachMenuCount) {
+            totalOrderMenuCount += count;
+        }
+
+        if (totalOrderMenuCount > 20) {
             throw new IllegalArgumentException();
         }
     }
