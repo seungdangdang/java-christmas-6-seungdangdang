@@ -50,4 +50,21 @@ class ValidatorTest {
                 () -> converter.parseOrder("양송이수프-0")
         );
     }
+
+    @DisplayName("음료만 주문하면 예외가 발생한다.")
+    @Test
+    void createOnlyDrinkOrder() {
+        Assertions.assertThrows(
+                IllegalArgumentException.class,
+                () -> converter.parseOrder("샴페인-1")
+        );
+        Assertions.assertThrows(
+                IllegalArgumentException.class,
+                () -> converter.parseOrder("레드와인-2")
+        );
+        Assertions.assertThrows(
+                IllegalArgumentException.class,
+                () -> converter.parseOrder("제로콜라-3")
+        );
+    }
 }
