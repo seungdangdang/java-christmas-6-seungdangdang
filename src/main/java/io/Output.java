@@ -120,7 +120,7 @@ public class Output {
         }
     }
 
-    private final String getEventBadge(int entireDiscountAmount) {
+    private String getEventBadge(int entireDiscountAmount) {
         if (entireDiscountAmount >= 20000) {
             return "산타";
         }
