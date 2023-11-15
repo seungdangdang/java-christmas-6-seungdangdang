@@ -40,8 +40,8 @@ public class Converter {
         int quantity = parseQuantity(parts[1]);
         validator.isValidMenu(menu);
         validator.isValidOrderCount(quantity);
-        orderList.put(menu, quantity);
         validator.hasDuplicateMenuOrder(orderList, menu);
+        orderList.put(menu, quantity);
     }
 
     private int parseQuantity(String quantityString) {
