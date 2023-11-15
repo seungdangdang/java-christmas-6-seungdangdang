@@ -41,6 +41,7 @@ public class Converter {
         validator.isValidMenu(menu);
         validator.isValidOrderCount(quantity);
         orderList.put(menu, quantity);
+        validator.hasDuplicateMenuOrder(orderList, menu);
     }
 
     private int parseQuantity(String quantityString) {
