@@ -80,4 +80,14 @@ class ValidatorTest {
                 () -> validator.hasDuplicateMenuOrder(orderList, "시저샐러드")
         );
     }
+
+    @DisplayName("주문 메뉴가 20개를 초과하면 에러가 발생한다.")
+    @Test
+    void createOverOrder() {
+        orderList.put("시저샐러드", 21);
+        Assertions.assertThrows(
+                IllegalArgumentException.class,
+                () -> validator.validateOrderMenuCount(orderList)
+        );
+    }
 }
