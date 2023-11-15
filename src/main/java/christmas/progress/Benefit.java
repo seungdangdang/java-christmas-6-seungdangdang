@@ -10,11 +10,6 @@ public class Benefit {
 
     SpecialDayDiscount specialDayDiscount = new SpecialDayDiscount(calculator);
     FreeGift freeGift = new FreeGift();
-    private int christmasDayAmount = 0;
-    private int dayOfWeekAmount = 0;
-    private int specialDayAmount = 0;
-    private int freeGiftResult;
-    private String thisDay;
 
     public int getChristmasDayAmount() {
         return christmasDayAmount;
@@ -50,4 +45,12 @@ public class Benefit {
             freeGiftResult = 25000;
         }
     }
+
+    private int christmasDayAmount = 0;
+    private int dayOfWeekAmount = 0;
+    private int specialDayAmount = 0;
+    private int freeGiftResult;
+    private String thisDay;
+
+
 }
