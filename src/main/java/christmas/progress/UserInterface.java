@@ -33,11 +33,16 @@ public class UserInterface {
         Console.close();
     }
 
-    public void showEventBenefits(int visitDate, Map<String, Integer> orderList) {
+    public void showUserOrderInformation(int visitDate, Map<String, Integer> orderList) {
         output.eventPreviewMessage(visitDate);
         showOrderMenu(orderList);
         int totalAmountBeforeDiscount = getTotalAmountBeforeDiscount(orderList);
         showTotalAmountBeforeDiscount(orderList, totalAmountBeforeDiscount);
+        showUserBenefitInformation(visitDate, orderList, totalAmountBeforeDiscount);
+    }
+
+    private void showUserBenefitInformation(int visitDate, Map<String, Integer> orderList,
+                                            int totalAmountBeforeDiscount) {
         if (validator.validateOverStandardAmount(totalAmountBeforeDiscount)) {
             String freeGiftMenu = freeGift.getAboutFreeGift(totalAmountBeforeDiscount);
             showFreeGiftMenu(freeGiftMenu);
