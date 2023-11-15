@@ -1,6 +1,8 @@
 package validation;
 
 import christmas.menu.MENU;
+import christmas.menu.MenuCategory;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 public class Validator {
@@ -31,5 +33,17 @@ public class Validator {
         }
     }
 
-
+    public void hasOnlyDrinkOrder(Map<String, Integer> orderList) {
+        boolean result = true;
+        MenuCategory menuCategory = new MenuCategory();
+        for (Map.Entry<String, Integer> entry : orderList.entrySet()) {
+            String key = entry.getKey();
+            if (!menuCategory.getDrinkList().contains(key)) {
+                result = false;
+            }
+        }
+        if (result) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
