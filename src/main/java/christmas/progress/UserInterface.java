@@ -9,6 +9,7 @@ import io.Output;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import validation.Validator;
 
 public class UserInterface {
     Converter converter = new Converter();
@@ -18,6 +19,7 @@ public class UserInterface {
     Calculator calculator = new Calculator();
     FreeGift freeGift = new FreeGift();
     Benefit benefit = new Benefit();
+    Validator validator = new Validator();
     int visitDate = 0;
     public Map<String, Integer> orderList = new HashMap<>();
 
@@ -35,15 +37,30 @@ public class UserInterface {
         showOrderMenu(orderList);
         int totalAmountBeforeDiscount = getTotalAmountBeforeDiscount(orderList);
         showTotalAmountBeforeDiscount(orderList, totalAmountBeforeDiscount);
-        String freeGiftMenu = freeGift.getAboutFreeGift(totalAmountBeforeDiscount);
-        showFreeGiftMenu(freeGiftMenu);
-        outputEachBenefit(visitDate, orderList, totalAmountBeforeDiscount);
-        int totalDiscountAmount = getEntireDiscountAmount(visitDate, orderList, totalAmountBeforeDiscount);
-        showTotalDiscountAmount(totalDiscountAmount);
-        int estimatedPaymentAmountAfterDiscount = getEstimatedPaymentAmountAfterDiscount(totalAmountBeforeDiscount,
-                totalDiscountAmount, freeGiftMenu);
-        showEstimatedPaymentAmountAfterDiscount(estimatedPaymentAmountAfterDiscount);
-        showEventBadge(totalDiscountAmount);
+        if (validator.validateOverStandardAmount(totalAmountBeforeDiscount)) {
+            String freeGiftMenu = freeGift.getAboutFreeGift(totalAmountBeforeDiscount);
+            showFreeGiftMenu(freeGiftMenu);
+            outputEachBenefit(visitDate, orderList, totalAmountBeforeDiscount);
+            int totalDiscountAmount = getEntireDiscountAmount(visitDate, orderList, totalAmountBeforeDiscount);
+            showTotalDiscountAmount(totalDiscountAmount);
+            int estimatedPaymentAmountAfterDiscount = getEstimatedPaymentAmountAfterDiscount(totalAmountBeforeDiscount,
+                    totalDiscountAmount, freeGiftMenu);
+            showEstimatedPaymentAmountAfterDiscount(estimatedPaymentAmountAfterDiscount);
+            showEventBadge(totalDiscountAmount);
+        }
+        if (!validator.validateOverStandardAmount(totalAmountBeforeDiscount)) {
+            showWhenEventNotApplicable();
+        }
+    }
+
+    private void showWhenEventNotApplicable() {
+        output.outputMessageWhenOrderlessThanTenThousandWon();
+        output.outputFreeGiftMenuInformation();
+        output.noneMessage();
+        output.outputEachBenefit();
+        output.noneMessage();
+        output.outputEstimatedPaymentAmountAfterDiscount();
+        output.noneMessage();
     }
 
     private void showEventBadge(int totalDiscountAmount) {
@@ -52,7 +69,7 @@ public class UserInterface {
     }
 
     private void showEstimatedPaymentAmountAfterDiscount(int estimatedPaymentAmountAfterDiscount) {
-        output.estimatedPaymentAmountAfterDiscount();
+        output.outputEstimatedPaymentAmountAfterDiscount();
         output.outputFormatNumberWithCommas(estimatedPaymentAmountAfterDiscount);
     }
 
@@ -76,7 +93,7 @@ public class UserInterface {
     }
 
     private void outputEachBenefit(int visitDate, Map<String, Integer> orderList, int totalAmountBeforeDiscount) {
-        output.outputTotalDiscountAmount();
+        output.outputEachBenefit();
         benefit.getUserBenefit(visitDate, orderList, totalAmountBeforeDiscount);
         int christmasCountdownDiscountAmount = benefit.getChristmasDayAmount();
         int dayOfWeekDiscountAmount = benefit.getDayOfWeekAmount();
