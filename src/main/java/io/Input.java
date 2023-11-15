@@ -41,5 +41,4 @@ public class Input {
     private String getUserInput() {
         return Console.readLine();
     }
-
 }
