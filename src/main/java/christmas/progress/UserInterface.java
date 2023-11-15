@@ -55,11 +55,11 @@ public class UserInterface {
             showEventBadge(totalDiscountAmount);
         }
         if (!validator.validateOverStandardAmount(totalAmountBeforeDiscount)) {
-            showWhenEventNotApplicable();
+            showWhenEventNotApplicable(totalAmountBeforeDiscount);
         }
     }
 
-    private void showWhenEventNotApplicable() {
+    private void showWhenEventNotApplicable(int totalAmountBeforeDiscount) {
         output.outputMessageWhenOrderlessThanTenThousandWon();
         output.outputFreeGiftMenuInformation();
         output.noneMessage();
@@ -68,7 +68,7 @@ public class UserInterface {
         output.outputEntireBenefit();
         output.noneMessage();
         output.outputEstimatedPaymentAmountAfterDiscount();
-        output.noneMessage();
+        output.outputFormatNumberWithCommas(totalAmountBeforeDiscount);
         output.outputEventBadge();
         output.noneMessage();
     }
