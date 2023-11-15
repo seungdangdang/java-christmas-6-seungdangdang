@@ -24,15 +24,15 @@ public enum MENU {
         this.kind = kind;
     }
 
-    public String getKoreanName() {
+    public final String getKoreanName() {
         return koreanName;
     }
 
-    public int getMatchPrice() {
+    public final int getMatchPrice() {
         return price;
     }
 
-    public String getMatchKind() {
+    public final String getMatchKind() {
         return kind;
     }
 }
