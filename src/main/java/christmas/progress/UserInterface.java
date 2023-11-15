@@ -4,24 +4,17 @@ import camp.nextstep.edu.missionutils.Console;
 import christmas.event.FreeGift;
 import common.tool.Calculator;
 import common.tool.Converter;
-import common.userValue.UserOrder;
-import common.userValue.UserVisitDate;
+import io.Input;
 import io.Output;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
 public class UserInterface {
-    //TODO: Input클래스 별도로 만들기
     Converter converter = new Converter();
-
-//    public UserInterface(Converter converter) {
-//        this.converter = converter;
-//    }
+    Input input = new Input();
 
     Output output = new Output(converter);
-    UserVisitDate userVisitDate = new UserVisitDate();
-    UserOrder userOrder = new UserOrder();
     Calculator calculator = new Calculator();
     FreeGift freeGift = new FreeGift();
     Benefit benefit = new Benefit();
@@ -31,9 +24,9 @@ public class UserInterface {
     public void gatheringVisitDateAndOrderList() {
         output.startMessage();
         output.visitDayRequestMessage();
-        visitDate = userVisitDate.getVisitDate();
+        visitDate = input.getVisitDate();
         output.orderRequestMessage();
-        orderList = userOrder.getOrderList();
+        orderList = input.getOrderList();
         Console.close();
     }
 
