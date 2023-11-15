@@ -8,7 +8,7 @@ public class Progress {
     public Map<String, Integer> orderList = new HashMap<>();
     public UserInterface userInterface = new UserInterface();
 
-    public void run() {
+    public final void run() {
         userInterface.gatheringVisitDateAndOrderList();
         this.visitDate = userInterface.visitDate;
         this.orderList = userInterface.orderList;

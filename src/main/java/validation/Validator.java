@@ -12,14 +12,14 @@ public class Validator {
         return totalAmountBeforeDiscount >= 10000;
     }
 
-    public void isDayOfMonthValid(String input) {
+    public final void isDayOfMonthValid(String input) {
         final Pattern VISIT_DAY_PATTERN = Pattern.compile("^(?:[1-9]|[12]\\d|31)$");
         if (!VISIT_DAY_PATTERN.matcher(input).matches()) {
             throw new IllegalArgumentException();
         }
     }
 
-    public void isValidMenu(String input) {
+    public final void isValidMenu(String input) {
         boolean isValid = false;
         for (MENU menu : MENU.values()) {
             if (menu.getKoreanName().equals(input)) {
@@ -32,13 +32,13 @@ public class Validator {
         }
     }
 
-    public void isValidOrderCount(int input) {
+    public final void isValidOrderCount(int input) {
         if (input < 1) {
             throw new IllegalArgumentException();
         }
     }
 
-    public void hasOnlyDrinkOrder(Map<String, Integer> orderList) {
+    public final void hasOnlyDrinkOrder(Map<String, Integer> orderList) {
         boolean result = true;
         MenuCategory menuCategory = new MenuCategory();
         for (Map.Entry<String, Integer> entry : orderList.entrySet()) {
@@ -52,13 +52,13 @@ public class Validator {
         }
     }
 
-    public void hasDuplicateMenuOrder(Map<String, Integer> orderList, String menu) {
+    public final void hasDuplicateMenuOrder(Map<String, Integer> orderList, String menu) {
         if (orderList.containsKey(menu)) {
             throw new IllegalArgumentException();
         }
     }
 
-    public void validateOrderMenuCount(Map<String, Integer> orderList) {
+    public final void validateOrderMenuCount(Map<String, Integer> orderList) {
         int totalOrderMenuCount = 0;
         Collection<Integer> eachMenuCount = orderList.values();
         for (Integer count : eachMenuCount) {

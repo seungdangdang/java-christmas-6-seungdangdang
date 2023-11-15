@@ -23,7 +23,7 @@ public class UserInterface {
     int visitDate = 0;
     public Map<String, Integer> orderList = new HashMap<>();
 
-    public void gatheringVisitDateAndOrderList() {
+    public final void gatheringVisitDateAndOrderList() {
         output.startMessage();
         output.visitDayRequestMessage();
         visitDate = input.getVisitDate();
@@ -33,7 +33,7 @@ public class UserInterface {
         Console.close();
     }
 
-    public void showUserOrderInformation(int visitDate, Map<String, Integer> orderList) {
+    public final void showUserOrderInformation(int visitDate, Map<String, Integer> orderList) {
         output.eventPreviewMessage(visitDate);
         showOrderMenu(orderList);
         int totalAmountBeforeDiscount = getTotalAmountBeforeDiscount(orderList);

@@ -36,7 +36,7 @@ public class Benefit {
         return thisDay;
     }
 
-    public void getUserBenefit(int visitDay, Map<String, Integer> orderList, int beforeAmount) {
+    public final void getUserBenefit(int visitDay, Map<String, Integer> orderList, int beforeAmount) {
         christmasDayAmount = calculator.calculateChristmasDayDiscount(visitDay);
         dayOfWeekAmount = calculator.calculateDayOfWeekDiscountAmount(visitDay, orderList);
         specialDayAmount = specialDayDiscount.getSpecialDayDiscount(visitDay);

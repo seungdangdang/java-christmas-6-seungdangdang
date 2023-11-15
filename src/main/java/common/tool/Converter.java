@@ -9,7 +9,7 @@ public class Converter {
     DecimalFormat formatter = new DecimalFormat("###,###");
     Validator validator = new Validator();
 
-    public String formatNumberWithCommas(int number) {
+    public final String formatNumberWithCommas(int number) {
         return formatter.format(number);
     }
 
@@ -18,7 +18,7 @@ public class Converter {
         return Integer.parseInt(value);
     }
 
-    public Map<String, Integer> parseOrder(String orderInfo) {
+    public final Map<String, Integer> parseOrder(String orderInfo) {
         Map<String, Integer> orderList;
         orderList = parseOrderStringToList(orderInfo);
         validator.hasOnlyDrinkOrder(orderList);

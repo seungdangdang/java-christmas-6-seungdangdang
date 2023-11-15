@@ -13,7 +13,7 @@ public class Calculator {
         return checkMainOrDessertDiscount(visitDay);
     }
 
-    public int getBeforeDiscountAmount(Map<String, Integer> orderList) {
+    public final int getBeforeDiscountAmount(Map<String, Integer> orderList) {
         int beforeDiscountAmount = 0;
 
         Set<String> keys = orderList.keySet();
@@ -24,7 +24,7 @@ public class Calculator {
         return beforeDiscountAmount;
     }
 
-    public int calculateChristmasDayDiscount(int visitDay) {
+    public final int calculateChristmasDayDiscount(int visitDay) {
         LocalDate startDate = LocalDate.of(2023, 12, 1);
         LocalDate endDate = LocalDate.of(2023, 12, 25);
         LocalDate userDate = LocalDate.of(2023, 12, visitDay);
@@ -40,7 +40,7 @@ public class Calculator {
         return 0;
     }
 
-    public int calculateSpecialDayDiscount(int visitDay, List<Integer> specialDayList) {
+    public final int calculateSpecialDayDiscount(int visitDay, List<Integer> specialDayList) {
         for (Integer specialDay : specialDayList) {
             if (visitDay == specialDay) {
                 return 1000;
@@ -49,7 +49,7 @@ public class Calculator {
         return 0;
     }
 
-    public int calculateDayOfWeekDiscountAmount(int visitDay, Map<String, Integer> orderList) {
+    public final int calculateDayOfWeekDiscountAmount(int visitDay, Map<String, Integer> orderList) {
         String discountMenu = getDiscountMenu(visitDay);
         int discountAmount = 0;
         Set<String> orderKeys = orderList.keySet();
@@ -60,7 +60,7 @@ public class Calculator {
         return discountAmount;
     }
 
-    public int getDiscountedAmount(int beforeAmount, int entireDiscountAmount, String freeGiftResult) {
+    public final int getDiscountedAmount(int beforeAmount, int entireDiscountAmount, String freeGiftResult) {
         if (freeGiftResult.equals("샴페인 1개")) {
             return beforeAmount - (entireDiscountAmount - 25000);
         }

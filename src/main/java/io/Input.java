@@ -8,11 +8,11 @@ public class Input {
     private final Converter converter = new Converter();
     private final Output output = new Output(converter);
 
-    public Map<String, Integer> getOrderList() {
+    public final Map<String, Integer> getOrderList() {
         return orderList();
     }
 
-    public int getVisitDate() {
+    public final int getVisitDate() {
         return visitDate();
     }
 
