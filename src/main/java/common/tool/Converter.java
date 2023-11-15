@@ -8,6 +8,7 @@ import validation.Validator;
 public class Converter {
     DecimalFormat formatter = new DecimalFormat("###,###");
     Validator validator = new Validator();
+
     public String formatNumberWithCommas(int number) {
         return formatter.format(number);
     }
@@ -20,6 +21,7 @@ public class Converter {
     public Map<String, Integer> parseOrder(String orderInfo) {
         Map<String, Integer> orderList;
         orderList = parseOrderStringToList(orderInfo);
+        validator.hasOnlyDrinkOrder(orderList);
         return orderList;
     }
 
