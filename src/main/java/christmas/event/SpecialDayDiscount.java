@@ -13,7 +13,7 @@ public class SpecialDayDiscount {
         this.calculator = calculator;
     }
 
-    public int getSpecialDayDiscount(int visitDay) {
+    public final int getSpecialDayDiscount(int visitDay) {
         return calculator.calculateSpecialDayDiscount(visitDay, specialDayList);
     }
 }
