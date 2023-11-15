@@ -6,6 +6,7 @@ import static constant.RequestMessage.ORDER_REQUEST_MESSAGE;
 import static constant.RequestMessage.VISIT_DAY_REQUEST_MESSAGE;
 import static constant.SystemMessage.EVENT_PREVIEW_NOTIFICATION_MESSAGE;
 import static constant.SystemMessage.LINE_SEPARATOR;
+import static constant.SystemMessage.NOTICE_WHEN_ORDER_BELOW_THE_STANDARD;
 import static constant.SystemMessage.WELCOME_MESSAGE;
 
 import common.tool.Converter;
@@ -20,6 +21,14 @@ public class Output {
 
     public final void startMessage() {
         System.out.println(WELCOME_MESSAGE);
+    }
+
+    public final void noneMessage() {
+        System.out.println("없음");
+    }
+
+    public final void outputMessageWhenOrderlessThanTenThousandWon() {
+        System.out.println(NOTICE_WHEN_ORDER_BELOW_THE_STANDARD);
     }
 
     public final void eventPreviewMessage(int visitDay) {
@@ -69,7 +78,7 @@ public class Output {
         System.out.println(input);
     }
 
-    public final void outputTotalDiscountAmount() {
+    public final void outputEachBenefit() {
         System.out.print(LINE_SEPARATOR);
         System.out.println("<혜택 내역>");
     }
@@ -99,7 +108,7 @@ public class Output {
         System.out.println("<총혜택 금액>");
     }
 
-    public final void estimatedPaymentAmountAfterDiscount() {
+    public final void outputEstimatedPaymentAmountAfterDiscount() {
         System.out.print(LINE_SEPARATOR);
         System.out.println("<할인 후 예상 결제 금액>");
     }
