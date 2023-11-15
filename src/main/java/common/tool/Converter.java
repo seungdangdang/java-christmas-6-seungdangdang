@@ -6,8 +6,13 @@ import java.util.Map;
 import validation.Validator;
 
 public class Converter {
-    DecimalFormat formatter = new DecimalFormat("###,###");
-    Validator validator = new Validator();
+    Validator validator;
+    DecimalFormat formatter;
+
+    public Converter(Validator validator) {
+        this.validator = validator;
+        formatter = new DecimalFormat("###,###");
+    }
 
     public final String formatNumberWithCommas(int number) {
         return formatter.format(number);

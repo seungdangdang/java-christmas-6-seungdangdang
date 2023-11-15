@@ -12,16 +12,36 @@ import java.util.Map.Entry;
 import validation.Validator;
 
 public class UserInterface {
-    Converter converter = new Converter();
-    Input input = new Input();
+    Validator validator;
+    Converter converter;
+    Output output;
+    Input input;
+    Calculator calculator;
+    FreeGift freeGift;
+    Benefit benefit;
+    int visitDate;
+    Map<String, Integer> orderList;
 
-    Output output = new Output(converter);
-    Calculator calculator = new Calculator();
-    FreeGift freeGift = new FreeGift();
-    Benefit benefit = new Benefit();
-    Validator validator = new Validator();
-    int visitDate = 0;
-    public Map<String, Integer> orderList = new HashMap<>();
+
+    public UserInterface(
+            Validator validator,
+            Converter converter,
+            Output output,
+            Input input,
+            Calculator calculator,
+            FreeGift freeGift,
+            Benefit benefit
+    ) {
+        this.validator = validator;
+        this.converter = converter;
+        this.output = output;
+        this.input = input;
+        this.calculator = calculator;
+        this.freeGift = freeGift;
+        this.benefit = benefit;
+        visitDate = 0;
+    }
+
 
     public final void gatheringVisitDateAndOrderList() {
         output.startMessage();

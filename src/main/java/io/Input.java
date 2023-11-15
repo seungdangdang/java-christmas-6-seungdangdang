@@ -5,8 +5,13 @@ import common.tool.Converter;
 import java.util.Map;
 
 public class Input {
-    private final Converter converter = new Converter();
-    private final Output output = new Output(converter);
+    Converter converter;
+    Output output;
+
+    public Input(Converter converter, Output output) {
+        this.converter = converter;
+        this.output = output;
+    }
 
     public final Map<String, Integer> getOrderList() {
         return orderList();

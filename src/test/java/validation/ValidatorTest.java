@@ -16,7 +16,7 @@ class ValidatorTest {
     @BeforeEach
     void setup() {
         validator = new Validator();
-        converter = new Converter();
+        converter = new Converter(validator);
         orderList = new HashMap<>();
     }
 
