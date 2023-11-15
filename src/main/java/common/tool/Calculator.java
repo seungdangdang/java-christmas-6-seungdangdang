@@ -9,6 +9,10 @@ import java.util.Set;
 import java.time.DayOfWeek;
 
 public class Calculator {
+    public String getDiscountMenu(int visitDay) {
+        return checkMainOrDessertDiscount(visitDay);
+    }
+
     public int getBeforeDiscountAmount(Map<String, Integer> orderList) {
         int beforeDiscountAmount = 0;
 
@@ -18,16 +22,6 @@ public class Calculator {
             beforeDiscountAmount += price;
         }
         return beforeDiscountAmount;
-    }
-
-
-    private int getPriceForMenu(String input, int quantity) {
-        for (MENU menu : MENU.values()) {
-            if (menu.getKoreanName().equals(input)) {
-                return quantity * menu.getMatchPrice();
-            }
-        }
-        return 0;
     }
 
     public int calculateChristmasDayDiscount(int visitDay) {
@@ -66,6 +60,16 @@ public class Calculator {
         return discountAmount;
     }
 
+    public int getDiscountedAmount(int beforeAmount, int entireDiscountAmount, String freeGiftResult) {
+        if (freeGiftResult.equals("샴페인 1개")) {
+            return beforeAmount - (entireDiscountAmount - 25000);
+        }
+        if (freeGiftResult.equals("없음")) {
+            return beforeAmount - entireDiscountAmount;
+        }
+        return 0;
+    }
+
     private static int getDiscountAmount(Map<String, Integer> orderList, String myOrder, String discountMenu,
                                          int discountAmount) {
         for (MENU menu : MENU.values()) {
@@ -86,10 +90,6 @@ public class Calculator {
         return discountAmount;
     }
 
-    public String getDiscountMenu(int visitDay) {
-        return checkMainOrDessertDiscount(visitDay);
-    }
-
     private String checkMainOrDessertDiscount(int visitDay) {
         LocalDate date = LocalDate.of(2023, 12, visitDay);
         DayOfWeek dayOfWeek = date.getDayOfWeek();
@@ -100,12 +100,11 @@ public class Calculator {
         return "디저트";
     }
 
-    public int getDiscountedAmount(int beforeAmount, int entireDiscountAmount, String freeGiftResult) {
-        if (freeGiftResult.equals("샴페인 1개")) {
-            return beforeAmount - (entireDiscountAmount - 25000);
-        }
-        if (freeGiftResult.equals("없음")) {
-            return beforeAmount - entireDiscountAmount;
+    private int getPriceForMenu(String input, int quantity) {
+        for (MENU menu : MENU.values()) {
+            if (menu.getKoreanName().equals(input)) {
+                return quantity * menu.getMatchPrice();
+            }
         }
         return 0;
     }
