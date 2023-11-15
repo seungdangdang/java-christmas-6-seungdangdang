@@ -46,4 +46,10 @@ public class Validator {
             throw new IllegalArgumentException();
         }
     }
+
+    public void hasDuplicateMenuOrder(Map<String, Integer> orderList, String menu) {
+        if (orderList.containsKey(menu)) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
