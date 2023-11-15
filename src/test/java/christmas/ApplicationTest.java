@@ -39,6 +39,7 @@ class ApplicationTest extends NsTest {
                     "<총혜택 금액>",
                     "없음",
                     "<할인 후 예상 결제 금액>",
+                    "6,000원",
                     "<12월 이벤트 배지>",
                     "없음"
             );
